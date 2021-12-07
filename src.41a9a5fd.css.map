@@ -1,0 +1,1 @@
+{"version":3,"sources":["sass/_example.scss"],"names":[],"mappings":"AAAA,aACE,eAAA,CACA,gBAAA,CACA,gBAEF,KACE,cAAA,CACA","file":"src.41a9a5fd.css","sourceRoot":"../src","sourcesContent":[".search-form {\n  margin-left: 40%;\n  margin-right: 50%;\n  margin-top: 20px;\n}\n.btn {\n  margin-top: 5px;\n  margin-left: 40%;\n}\n"]}
