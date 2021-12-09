@@ -52,7 +52,7 @@ function appendHitsMarkup(hits) {
     
     refs.loadMoreBtn.classList.remove('is-hidden')
                         if (hits.length  > 1) {
-                        Notify.success('We found totalHits images.');
+                        Notify.success('Hooray! We found totalHits images.');
                         return
     }
 

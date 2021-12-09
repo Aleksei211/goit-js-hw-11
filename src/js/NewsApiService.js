@@ -10,7 +10,7 @@ export default class NewApiService{
    async fetchHits() {
         
         const url =  `https://${BASE_URL}/?key=${API_KEY}&q=${this.searchQuery}
-    &image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=100`;
+    &image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=12`;
 
  return  await fetch(url)
     .then(response => response.json())
