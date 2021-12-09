@@ -3,10 +3,12 @@
   margin-left: 40%;
   margin-right: 60%;
   margin-top: 20px;
+  margin-bottom: 20px;
+  height: 50px;
 }
 .btn-submit {
-  margin-top: 5px;
   margin-left: 40%;
+  border-radius: 10px;
 }
 
 .btn {
@@ -17,10 +19,9 @@
   width: 120px;
   height: 40px;
 }
-
-// .label {
-
-// }
+.is-hidden {
+  opacity: 0;
+}
 
 .gallery {
   display: flex;
@@ -29,4 +30,14 @@
   flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
+}
+.photo-card {
+  border-radius: 4px;
+  margin: 15px;
+  width: calc(100 / 4 * 30px) / 4;
+  background-color: tomato;
+}
+.photo-card img {
+  width: 290px;
+  border-radius: 4px;
 }

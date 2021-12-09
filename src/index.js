@@ -15,8 +15,6 @@ const refs = {
 
 const newsApiService = new NewsApiService();
 
-//const API_KEY = '24706231-43c46d3eecbbb07f6810d4a25';
-
 refs.searchForm.addEventListener('submit', onSearch);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
 
@@ -29,10 +27,22 @@ function onSearch(evt) {
     newsApiService.searchQuery = evt.currentTarget.elements.searchQuery.value;
 
     if (newsApiService.searchQuery === '') {
+        refs.loadMoreBtn.classList.add('is-hidden')
         return Notify.failure('Sorry, enter your query')
+        
     }
-    newsApiService.resetPage();
-    newsApiService.fetchHits().then(appendHitsMarkup);
+
+
+    if (newsApiService.searchQueryy !== '') {
+        refs.loadMoreBtn.classList.add('is-hidden')
+        newsApiService.resetPage();
+        newsApiService.fetchHits().then(appendHitsMarkup);
+        return Notify.success('Hooray! We found totalHits images.');
+
+            
+    }
+
+
     
 }
 
@@ -45,9 +55,14 @@ function appendHitsMarkup(hits) {
     
     refs.gallery.insertAdjacentHTML('beforeend', galleryTpl(hits));
     lightbox.refresh()
+    
+    refs.loadMoreBtn.classList.remove('is-hidden')
 }
 function clearHitsContainer() {
     refs.gallery.innerHTML = '';
+}
+function onError(){
+  Notify.failure("We're sorry, but you've reached the end of search results.");
 }
 
  const lightbox = new SimpleLightbox('.gallery a', {

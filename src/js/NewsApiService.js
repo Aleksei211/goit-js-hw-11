@@ -7,21 +7,23 @@ export default class NewApiService{
         this.searchQuery = '';
         this.page = 1;
     }
-    fetchHits() {
+   async fetchHits() {
         
-        const url = `https://${BASE_URL}/?key=${API_KEY}&q=${this.searchQuery}
-    &image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=10`;
+        const url =  `https://${BASE_URL}/?key=${API_KEY}&q=${this.searchQuery}
+    &image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=12`;
 
- return fetch(url)
+ return  await fetch(url)
     .then(response => response.json())
     .then(({hits}) => {
         this.incrementPage();
         
         return hits;
-    })
+    }).catch(error => console.log(error));
+
     }
     incrementPage() {
         this.page += 1;
+        
     }
     resetPage() {
         this.page = 1;
