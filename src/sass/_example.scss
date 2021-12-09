@@ -1,9 +1,32 @@
 .search-form {
+  display: flex;
   margin-left: 40%;
-  margin-right: 50%;
+  margin-right: 60%;
   margin-top: 20px;
 }
-.btn {
+.btn-submit {
   margin-top: 5px;
   margin-left: 40%;
+}
+
+.btn {
+  margin-left: 50%;
+  margin-right: 50%;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 120px;
+  height: 40px;
+}
+
+// .label {
+
+// }
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
 }

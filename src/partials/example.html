@@ -1,6 +1,17 @@
 <article class="example">
+
 <form class="search-form" id="search-form">
   <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
-  <button type="submit" class="btn">Search</button>
+  <button type="submit" class="btn-submit">Search</button>
 </form>
+
+<div class="gallery">
+  <!-- Карточки изображений -->
+</div>
+
+<button type="button" class="btn" data-action="load-more">
+  <span class="spinner-border spinner-border-sm spinner is-hidden" role="status" aria-hidden="true"></span>
+  <span class="label">Load more</span>
+</button>
+
 </article>
