@@ -31,38 +31,34 @@ function onSearch(evt) {
         return Notify.failure('Sorry, enter your query')
         
     }
-
-
-    if (newsApiService.searchQueryy !== '') {
-        refs.loadMoreBtn.classList.add('is-hidden')
-        newsApiService.resetPage();
-        newsApiService.fetchHits().then(appendHitsMarkup);
-        return Notify.success('Hooray! We found totalHits images.');
-
-            
-    }
-
-
     
-}
+            refs.loadMoreBtn.classList.add('is-hidden')
+            newsApiService.resetPage();
+            newsApiService.fetchHits().then(appendHitsMarkup);
+    
+    }
 
 function onLoadMore() {
     newsApiService.fetchHits().then(appendHitsMarkup);
 }
 
-
 function appendHitsMarkup(hits) {
-    
+                    if (hits.length  === 0) {
+                        Notify.failure("Nothing has been found. Please enter a more specific query!");
+                        return
+    }
     refs.gallery.insertAdjacentHTML('beforeend', galleryTpl(hits));
     lightbox.refresh()
     
     refs.loadMoreBtn.classList.remove('is-hidden')
+                        if (hits.length  > 1) {
+                        Notify.success('Hooray! We found totalHits images.');
+                        return
+    }
+
 }
 function clearHitsContainer() {
     refs.gallery.innerHTML = '';
-}
-function onError(){
-  Notify.failure("We're sorry, but you've reached the end of search results.");
 }
 
  const lightbox = new SimpleLightbox('.gallery a', {

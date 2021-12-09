@@ -10,15 +10,24 @@ export default class NewApiService{
    async fetchHits() {
         
         const url =  `https://${BASE_URL}/?key=${API_KEY}&q=${this.searchQuery}
-    &image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=12`;
+    &image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=100`;
 
  return  await fetch(url)
     .then(response => response.json())
-    .then(({hits}) => {
-        this.incrementPage();
+     .then(({ hits }) => {
+         this.incrementPage();
         
-        return hits;
-    }).catch(error => console.log(error));
+         return hits;
+         
+         //    try {
+         //     const response = await fetch(url);
+         //    const hits = await response.json();
+         //    return hits;
+         //    } catch (error) {
+           
+         //    }
+     })
+    .catch(error => error(Notify.failure( "We're sorry, but you've reached the end of search results.")));
 
     }
     incrementPage() {
